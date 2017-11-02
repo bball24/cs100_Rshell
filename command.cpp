@@ -19,4 +19,11 @@ else if (connectors == "||"){
 
 
 return 1;
+}
+
+boolean command::isEmpty(){
+
+}
+
+
 
