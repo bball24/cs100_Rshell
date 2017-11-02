@@ -2,27 +2,16 @@
 
 #include "command.h"
 
-int command::executecommand(){
 
-
-if(connectors ==  ";")
+boolean command::execute(){
+if(args.size() == 0){
+ return false;
+}
 
 }
 
-else if(connectors == "&&"){
-}
 
-
-else if (connectors == "||"){
-}
-
-
-
-return 1;
-}
-
-boolean command::isEmpty(){
-
+void command:executeCommand(){
 }
 
 
