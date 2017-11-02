@@ -10,7 +10,7 @@ class command{
 public:
  command(string commands) : commands(commands) { };
  command(string commands, vector<string> args) : commands(commands), args(args) { };
- void executeCommand();
+ int  executeCommand();
 private:
  string commands;
  vector<string> args;
