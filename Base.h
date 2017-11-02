@@ -8,6 +8,7 @@ class Base{
 public:
 
 virtual bool execute() = 0;
+virtual bool eval() = 0;
 };
 
 
