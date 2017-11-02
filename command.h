@@ -10,15 +10,16 @@ using namespace std;
 
 class Command : public Base {
  public:
- command(string commands): commands(commands) {};
- command(string commands, string connectors): commands(commands), connectors(connectors) {};
-
+ command(string commands) : commands(commands) { };
+ command(string commands, vector<string> args) : commands(commands), args(args) { };
+ 
  private:
  string commands;
- string connectors;
+ vector<string>args;
 
  public:
  bool execute();
+ void executeCommand();
 };
 
 
