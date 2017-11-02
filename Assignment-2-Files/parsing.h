@@ -1,9 +1,9 @@
 #ifndef ___PARSING___H__
 #define ___PARSING___H__
-
+#include "command.h"
 using namespace std;
 
-class Parsing
+class parsing
 {
     private:
         string line;
