@@ -1,12 +1,10 @@
-C = g++
-CC_FLAGS = -Wall -Werror -ansi -pedantic
 
+FLAGS = -Wall -Werror -ansi -pedantic
+COMP = g++
 
-all:
-        mkdir -p ./bin
+all: 
+	mkdir -p ./bin
+	$(COMP) $(FLAGS) ./src/main.cpp -o ./bin/rshell
+rshell:
 	$(COMP) $(FLAGS) ./src/main.cpp -o ./bin/rshell
 
-
-rshell:
- 
-        $(COMP) $(FLAGS) ./src/main.cpp -o ./bin/rshell
