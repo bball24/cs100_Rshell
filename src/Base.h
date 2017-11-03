@@ -14,6 +14,3 @@ virtual bool eval() = 0;
 
 #endif
 
-
-
-

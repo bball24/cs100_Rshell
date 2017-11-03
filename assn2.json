@@ -1,0 +1,15 @@
+{
+        "github_url": "https://github.com/cs100/rshell-epicdan.git",
+        "partners": [
+                {
+                        "name": "Jerry Tan",
+                        "email": "jtan027@ucr.edu",
+                        "id": 861265108
+                },
+                {
+                        "name": "Daniel D'Orange",
+                        "email": "ddor001@ucr.edu",
+                        "id": 861293521
+                }
+        ]
+}
