@@ -28,4 +28,6 @@ private:
     bool flagforExit;
     bool flagforComment;
     
+};
 
+#endif
