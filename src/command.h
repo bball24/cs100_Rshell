@@ -1,7 +1,9 @@
 #ifndef __COMMAND_H
 #define _COMMAND_H
 #include <vector>
-#include <iostream>
+#include <iostream
+#include <string.h>
+#include <stdio.h>
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <unistd.h>
