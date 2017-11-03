@@ -1,18 +1,24 @@
 #ifndef ___PARSING___H__
 #define ___PARSING___H__
-#include "command.h"
+#include <string>
+#include <cstring>
+#include <vector>
+//#include "command.h"
 using namespace std;
 
-class parsing
+class Parsing
 {
     private:
-        string line;
-        vector<command *> listOfCommands;
+        char* line;
+//        vector<command *> listOfCommands;
+        vector<string> listOfConnectors;
+        bool exitState;
     public:
         Parsing() : line() { };
-        Parsing(string line) : line(line) { };
+        void setLine(char* userLine);
         void runLine();
-        void exit();
-}
+        bool exitExists();
+		void buildCommand();
+};
 
 #endif
