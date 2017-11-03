@@ -1,29 +1,29 @@
-#ifndef _COMMAND_H
+#ifndef __COMMAND_H
 #define _COMMAND_H
-#include <iostream>
 #include <vector>
-#include <string>
-#include "Base.h"
-
+#include <iostream>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <unistd.h>
 using namespace std;
 
 
-class Command : public Base {
- public:
- command(string commands) : commands(commands) { };
- command(string commands, vector<string> args) : commands(commands), args(args) { };
- 
- private:
- string commands;
- vector<string>args;
+class command{
+    
+public:
+    command();
+    command(string c);
+    void executeCommand();
+    void checkConnectors();
+    int flag0;
+    int flag1;
+    string input;
+private:
+    
+    char ** command;
+    vector<string> connectors;
+    vector<string> listofCommands;
+    bool flagforExit;
+    bool flagforComment;
+    
 
- public:
- bool execute();
- void executeCommand();
-};
-
-
-
-
-
-#endif
