@@ -53,9 +53,95 @@ void command::checkConnectors(){
        if(connectors.size() == 0){
           executeCommand();
           listofCommands.erase(listofCommands.begin());
-        }
      }
+    else if(flagforComment == true){
+          executeCommand();
+          listofCommands.erase(listofCommands.begin());
+          return;
+     }
+     else if(connectors.empty() != true){
+          if(connectors.at(j) == "AND"){
+             if(flag0 == -1){
+                 executeCommand();
+                 connectors.erase(connectors.begin());
+                 listofCommands.erase(listofCommands.being()); 
+           
+                 if(listofCommands.empty() != true && flag1 == 1){
+		     executeCommand();  
+                     listofCommands.erase(listofCommands.begin());
+                  }
 
+              }
+                 else if(flag1 == 1){
+                      executeCommand();
+                      connectors.erase(connectors.begin());
+                      listofCommands.erase(userCommands.begin());
+                 }
+                 else{
+                     connectors.erase(connectors.begin());
+                     listofCommands.erase(listofCommands.begin());
+                     flag1 = 0;
+                 }
+                ++flag0;   
+          }
+      else if(connectors.at(j) == "OR"){
+          if(flag0 == -1){ 
+               executeCommand();
+               connectors.erase(connectors.begin());
+               listofCommands.erase(listofCommands.begin());
+              
+               if(listofCommands.empty() != true && flag1 == 0){
+                     executeCommand();
+                     userCommands.erase(userCommands.begin());
+                }
+                       
+                else if(listofCommands.empty() != true){
+                     listofCommands.erase(listofCommands.begin());
+                     flag1 = 0;
+                 }
+           }
+           else if(flag1 == 0){
+                executeCommand();
+                connectors.erase(connectors.begin());
+                listofCommands.erase(listofCommands.begin());
+
+            }
+            else{
+                connectors.erase(connectors.begin());
+                listofCommands.erase(listofCommands.begin());
+                flag1 = 0;
+            }
+            ++flag0;       
+      }              
+      else if(connectors.at(j) == "SEMICOLON"){
+          if(flag0 == -1){
+                executeCommand();
+                connectors.erase(connectors.begin());
+                listofCommands.erase(listofCommands.begin());
+                if(listofCommands.empty() != true){
+                    executeCommand();
+                    listofCommands.erase(listofCommands.begin());
+                    
+                 }
+           }
+          else{
+               executeCommand();
+               connectors.erase(connectors.begin());
+               listofCommands.erase(listofCommands.begin());
+           }
+           ++flag0;
+      }
+      else{
+      
+          while(listofCommands.empty() != true){
+               liestofCommands.pop_back();
+           }
+      }
+      ++flag0; 
+        
+  }
+
+}
 }
 
 
@@ -103,7 +189,7 @@ if(pid > 0){
 }
 
     else{
-         if(execvp(charCommands[0], charCommands) < 0){
+         if(execvp(charofCommands[0], charofCommands) < 0){
              flag1 = 0;
              perror("Unrecognized command. Execution failed");
              exit(0);
