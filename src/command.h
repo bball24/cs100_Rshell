@@ -1,7 +1,7 @@
 #ifndef __COMMAND_H
-#define _COMMAND_H
+#define __COMMAND_H
 #include <vector>
-#include <iostream
+#include <iostream>
 #include <string.h>
 #include <stdio.h>
 #include <sys/wait.h>
@@ -10,7 +10,7 @@
 using namespace std;
 
 
-class command{
+class Command{
     
 public:
     command();
