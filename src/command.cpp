@@ -1,59 +1,58 @@
 
-
 #include "command.h"
 
 Command::Command(){
- flagforExit = false;
- flagforComment = false;
- flag0 = -1;
+    flagforExit = false;
+    flagforComment = false;
+    flag0 = -1;
 }
 
-Command::Command(string s){
+Command::Command(string x){
 
- flagforExit = false;
- flagforComment = false;
- flag0 = -1;
- input = s;
+    flagforExit = false;
+    flagforComment = false;
+    flag0 = -1;
+    input = x;
 }
 
 void Command::checkConnectors(){
 
     int x = 0;
     if(connectors.size() >= listofCommands.size() && connectors.empty() != true){
-       while(input[x] == ' '){
-           ++x;
-       }
-       if(input[x] == '#'){
-          return;
-       }
+        while(input[x] == ' '){
+            ++x;
+        }
+        if(input[x] == '#'){
+            return;
+        }
 
-       if(input[x] == '&' || input[x] == ';' || input[x] == '|'){
-       cout << "Syntax error" << endl;
-       return;
+        if(input[x] == '&' || input[x] == ';' || input[x] == '|'){
+            cout << "Syntax error" << endl;
+            return;
 
-       }
-       else if(input[input.size() - 1] == '&' || input[input.size() - 1] == ';' || input[input.size() - 1] == '|'){
-                cout << "Syntax error" << endl;
-                return;
-            }
-  }
+         }
+        else if(input[input.size() - 1] == '&' || input[input.size() - 1] == ';' || input[input.size() - 1] == '|'){
+            cout << "Syntax error" << endl;
+            return;
+         }
+    }
 
     for(int i = 0; i < connectors.size(); ++i){
-       if(connectors.at(i) == "comment"){
-          if(i == 0){
-             if(listofCommands.at(0)[0] != '#'){
-                 flagforComment = true;
-              }
-           }
-       }
+        if(connectors.at(i) == "comment"){
+            if(i == 0){
+                if(listofCommands.at(0)[0] != '#'){
+                    flagforComment = true;
+                }
+            }
+         }
      }
 
     int j = 0;
     while(listofCommands.size() > 0){
-       if(connectors.size() == 0){
-          executeCommand();
-          listofCommands.erase(listofCommands.begin());
-     }
+        if(connectors.size() == 0){
+            executeCommand();
+            listofCommands.erase(listofCommands.begin());
+        }
     else if(flagforComment == true){
           executeCommand();
           listofCommands.erase(listofCommands.begin());
@@ -61,10 +60,10 @@ void Command::checkConnectors(){
      }
      else if(connectors.empty() != true){
           if(connectors.at(j) == "AND"){
-             if(flag0 == -1){
-                 executeCommand();
-                 connectors.erase(connectors.begin());
-                 listofCommands.erase(listofCommands.begin()); 
+              if(flag0 == -1){
+                  executeCommand();
+                  connectors.erase(connectors.begin());
+                  listofCommands.erase(listofCommands.begin()); 
            
                  if(listofCommands.empty() != true && flag1 == 1){
 		     executeCommand();  
@@ -84,32 +83,32 @@ void Command::checkConnectors(){
                  }
                 ++flag0;   
           }
-      else if(connectors.at(j) == "OR"){
-          if(flag0 == -1){ 
-               executeCommand();
-               connectors.erase(connectors.begin());
-               listofCommands.erase(listofCommands.begin());
+             else if(connectors.at(j) == "OR"){
+                  if(flag0 == -1){ 
+                      executeCommand();
+                      connectors.erase(connectors.begin());
+                      listofCommands.erase(listofCommands.begin());
               
-               if(listofCommands.empty() != true && flag1 == 0){
-                     executeCommand();
-                     listofCommands.erase(listofCommands.begin());
-                }
+                      if(listofCommands.empty() != true && flag1 == 0){
+                          executeCommand();
+                          listofCommands.erase(listofCommands.begin());
+                      }
                        
-                else if(listofCommands.empty() != true){
-                     listofCommands.erase(listofCommands.begin());
-                     flag1 = 0;
+                      else if(listofCommands.empty() != true){
+                          listofCommands.erase(listofCommands.begin());
+                          flag1 = 0;
                  }
            }
-           else if(flag1 == 0){
-                executeCommand();
-                connectors.erase(connectors.begin());
-                listofCommands.erase(listofCommands.begin());
+                 else if(flag1 == 0){
+                     executeCommand();
+                     connectors.erase(connectors.begin());
+                     listofCommands.erase(listofCommands.begin());
 
             }
-            else{
-                connectors.erase(connectors.begin());
-                listofCommands.erase(listofCommands.begin());
-                flag1 = 0;
+                 else{
+                     connectors.erase(connectors.begin());
+                     listofCommands.erase(listofCommands.begin());
+                     flag1 = 0;
             }
             ++flag0;       
       }              
@@ -147,9 +146,9 @@ void Command::checkConnectors(){
 
 
 void Command::executeCommand(){
- if(listofCommands.at(0) == ""){
-       return;
- }
+    if(listofCommands.at(0) == ""){
+        return;
+    }
 
  if(listofCommands.at(0) == "exit"){
         flagforExit = true;
@@ -183,10 +182,10 @@ void Command::executeCommand(){
         exit(0);
 
     }
-if(pid > 0){
-    if(waitpid(pid, &status, 0) != pid){
-    perror("waitpid() error");
-}
+    if(pid > 0){
+        if(waitpid(pid, &status, 0) != pid){
+        perror("waitpid() error");
+    }
 
     else{
          if(execvp(charofCommands[0], charofCommands) < 0){
