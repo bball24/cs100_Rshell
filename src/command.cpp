@@ -2,13 +2,13 @@
 
 #include "command.h"
 
-command::command(){
+Command::Command(){
  flagforExit = false;
  flagforComment = false;
  flag0 = -1;
 }
 
-command::command(string s){
+Command::Command(string s){
 
  flagforExit = false;
  flagforComment = false;
@@ -16,7 +16,7 @@ command::command(string s){
  input = s;
 }
 
-void command::checkConnectors(){
+void Command::checkConnectors(){
 
     int x = 0;
     if(connectors.size() >= listofCommands.size()) && connectors.empty() != true)){
@@ -146,7 +146,7 @@ void command::checkConnectors(){
 
 
 
-void command:executeCommand(){
+void Command::executeCommand(){
  if(listofCommands.at(0) == ""){
        return;
  }
