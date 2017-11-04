@@ -11,4 +11,5 @@ mkdir newfile || exit
 
 echo "No" || exit
 
+EOF
 
