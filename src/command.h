@@ -1,33 +1,26 @@
-#ifndef __COMMAND_H
-#define __COMMAND_H
-#include <vector>
+#ifndef ____COMMAND_H_
+#define ____COMMAND_H_
 #include <iostream>
-#include <string.h>
-#include <stdio.h>
+#include <string>
 #include <sys/wait.h>
-#include <sys/types.h>
 #include <unistd.h>
+#include <cstring>
 using namespace std;
 
-
-class Command{
-    
-public:
-    Command();
-    Command(string c);
-    void executeCommand();
-    void checkConnectors();
-    int flag0;
-    int flag1;
-    string input;
-private:
-    
-   
-    vector<string> connectors;
-    vector<string> listofCommands;
-    bool flagforExit;
-    bool flagforComment;
-    
+class command
+{
+	private:
+		// Stores the name of the command
+		string commandName;
+		// Stores the arguments respective to the given command.
+		string arguments;
+	public:
+		//Constructors
+		command() : commandName(), arguments() { };
+		command(string comm, string args) : commandName(comm), arguments(args) { };
+		// Attempts to run the given command from /usr/bin
+		int executeCommand();
 };
+
 
 #endif
