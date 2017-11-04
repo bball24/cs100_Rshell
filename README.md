@@ -6,6 +6,6 @@ This is a terminal shell that can execute mulitple commands on one line using co
 
 
 
-# CONTRIBUTORS
+## CONTRIBUTORS
 
 Jerry Tan and Daniel D'Orange
