@@ -19,7 +19,7 @@ Command::Command(string s){
 void Command::checkConnectors(){
 
     int x = 0;
-    if(connectors.size() >= listofCommands.size()) && connectors.empty() != true)){
+    if(connectors.size() >= listofCommands.size() && connectors.empty() != true){
        while(input[x) == " "){
            ++x;
        }
@@ -134,7 +134,7 @@ void Command::checkConnectors(){
       else{
       
           while(listofCommands.empty() != true){
-               liestofCommands.pop_back();
+               listofCommands.pop_back();
            }
       }
       ++flag0; 
@@ -167,7 +167,7 @@ void Command::executeCommand(){
        allWords.push_back(input);
     }
  char** charofCommands = new char *[allWords.size() + 1];
-    for(size_t i = 0; i < allWords.size(); i++{
+    for(size_t i = 0; i < allWords.size(); i++){
         charofCommands[i] = new char[allWords.at(i).size() + 1];
         strcpy(charofCommands.size(), allWord.at(i).c_str());
      }
