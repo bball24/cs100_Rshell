@@ -13,8 +13,8 @@ using namespace std;
 class Command{
     
 public:
-    command();
-    command(string c);
+    Command();
+    Command(string c);
     void executeCommand();
     void checkConnectors();
     int flag0;
