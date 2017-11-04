@@ -20,14 +20,14 @@ void Command::checkConnectors(){
 
     int x = 0;
     if(connectors.size() >= listofCommands.size() && connectors.empty() != true){
-       while(input[x) == " "){
+       while(input[x] == ' '){
            ++x;
        }
-       if(input[x] == "#"){
+       if(input[x] == '#'){
           return;
        }
 
-       if(input[x] == "&" || input[x] == ";" || input[x] == "|"){
+       if(input[x] == '&' || input[x] == ';' || input[x] == '|'){
        cout << "Syntax error" << endl;
        return;
 
@@ -38,10 +38,10 @@ void Command::checkConnectors(){
             }
   }
 
-    for(int i = 0; i < connectors.size(); ++k){
-       if(connectors.at(k) == "comment"){
-          if(i = 0){
-             if(listofCommands.at(0)[0] != "#"){
+    for(int i = 0; i < connectors.size(); ++i){
+       if(connectors.at(i) == "comment"){
+          if(i == 0){
+             if(listofCommands.at(0)[0] != '#'){
                  flagforComment = true;
               }
            }
@@ -64,7 +64,7 @@ void Command::checkConnectors(){
              if(flag0 == -1){
                  executeCommand();
                  connectors.erase(connectors.begin());
-                 listofCommands.erase(listofCommands.being()); 
+                 listofCommands.erase(listofCommands.begin()); 
            
                  if(listofCommands.empty() != true && flag1 == 1){
 		     executeCommand();  
@@ -75,7 +75,7 @@ void Command::checkConnectors(){
                  else if(flag1 == 1){
                       executeCommand();
                       connectors.erase(connectors.begin());
-                      listofCommands.erase(userCommands.begin());
+                      listofCommands.erase(listofCommands.begin());
                  }
                  else{
                      connectors.erase(connectors.begin());
@@ -92,7 +92,7 @@ void Command::checkConnectors(){
               
                if(listofCommands.empty() != true && flag1 == 0){
                      executeCommand();
-                     userCommands.erase(userCommands.begin());
+                     listofCommands.erase(listofCommands.begin());
                 }
                        
                 else if(listofCommands.empty() != true){
@@ -169,9 +169,9 @@ void Command::executeCommand(){
  char** charofCommands = new char *[allWords.size() + 1];
     for(size_t i = 0; i < allWords.size(); i++){
         charofCommands[i] = new char[allWords.at(i).size() + 1];
-        strcpy(charofCommands.size(), allWord.at(i).c_str());
+        strcpy(charofCommands[i], allWords.at(i).c_str());
      }
-    charofCommands[allWords.size()] = null;
+    charofCommands[allWords.size()] = 0;
 
 
 
@@ -205,7 +205,7 @@ if(pid > 0){
 
  
 
-}
+
 
 
 

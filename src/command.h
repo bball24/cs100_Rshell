@@ -22,7 +22,7 @@ public:
     string input;
 private:
     
-    ;
+   
     vector<string> connectors;
     vector<string> listofCommands;
     bool flagforExit;
