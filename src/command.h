@@ -1,29 +1,29 @@
-#ifndef _COMMAND_H
-#define _COMMAND_H
+#ifndef ____COMMAND_H_
+#define ____COMMAND_H_
 #include <iostream>
-#include <vector>
 #include <string>
-#include "Base.h"
-
+#include <sys/wait.h>
+#include <unistd.h>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
 using namespace std;
 
-
-class Command : public Base {
- public:
- command(string commands) : commands(commands) { };
- command(string commands, vector<string> args) : commands(commands), args(args) { };
- 
- private:
- string commands;
- vector<string>args;
-
- public:
- bool execute();
- void executeCommand();
+class command
+{
+	private:
+		// Stores the name of the command
+		string commandName;
+		// Stores the arguments respective to the given command.
+		string arguments;
+	public:
+		//Constructors
+		command() : commandName(), arguments() { };
+		command(string comm, string args) : commandName(comm), arguments(args) { };
+		// Attempts to run the given command from /usr/bin
+		int executeCommand();
+		string getCommandName();
 };
-
-
-
 
 
 #endif

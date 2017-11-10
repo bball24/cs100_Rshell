@@ -1,0 +1,8 @@
+echo test1 #commentasdf
+ls && echo test2 #commentasdf
+ls -a || echo test2 #commentasdf
+ls #-a
+ls #ls -a
+echo test 3 && echo test 4 #commentasdf
+ls -a #commentasdf
+exit #commentasdf
