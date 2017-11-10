@@ -15,7 +15,9 @@ int main()
 		userLineForParsing = new char[userInput.size() + 1];
 		strcpy(userLineForParsing, userInput.c_str());
 		userLineStorage.setLine(userLineForParsing);
-		userLineStorage.runLine();
+        userLineStorage.runLine();
+        cout << endl;
+		userLineStorage.clearVectors();
     }
 
 

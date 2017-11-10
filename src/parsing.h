@@ -3,22 +3,25 @@
 #include <string>
 #include <cstring>
 #include <vector>
-//#include "command.h"
+#include <iostream>
+#include <sstream>
+#include "command.h"
 using namespace std;
 
 class Parsing
 {
     private:
         char* line;
-//        vector<command *> listOfCommands;
-        vector<string> listOfConnectors;
+        vector<command *> listOfCommands;
+        vector<char> listOfConnectors;
         bool exitState;
     public:
         Parsing() : line() { };
         void setLine(char* userLine);
         void runLine();
         bool exitExists();
-		void buildCommand();
+		void buildCmdsAndCnctrs();
+		void clearVectors();
 };
 
 #endif
