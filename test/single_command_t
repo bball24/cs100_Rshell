@@ -1,0 +1,9 @@
+echo A
+ls
+mkdir test
+ls -a
+rm -r test
+touch test.txt
+ls
+rm test.txt
+exit
