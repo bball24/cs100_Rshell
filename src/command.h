@@ -23,6 +23,7 @@ class command
 		// Attempts to run the given command from /usr/bin
 		int executeCommand();
 		string getCommandName();
+                bool testCommand(vector <string> commands);
 };
 
 

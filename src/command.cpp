@@ -60,3 +60,61 @@ string command::getCommandName()
 {
 	return commandName;
 }
+
+bool command::testCommand(vector <string> cmds)
+{
+    if(cmds.size() <= 0)
+    {
+        cout << "Invalid command" << endl;
+        return false;
+    }
+    struct stat fileBuffer;
+    string flag = cmds.at(1);
+    auto path = cmds.at(2).c_str();
+    if(stat(path, &file_stat) == -1)
+    {
+        perror("Stat Error");
+        return false;
+    }
+    if (flag != "-e" && flag != "-d" && flag != "-f") // default flag
+    {
+        flag = "-e";
+    }
+
+    if(flag == "-e") // e flag
+    {
+       ///// still figuring out
+             
+    }
+    if(flag == "-d") // d flag
+    {
+        auto checkDirectory = S_ISDIR(file_stat.st_mode);
+        if(checkDirectory)
+        {
+             cout << "(true)" << endl;
+        }
+        else
+        {
+             cout << "(false)" << endl;
+        }
+        return true; // valid command
+    }
+    if(flag == "-f")
+    {
+        auto isRegFile = S_ISREG(file_stat.stmode);
+        if(isRegFile)
+        {
+            cout << "(true)" << endl;
+        }
+        else
+        { 
+            cout << "(false)" << endl;
+        }
+        
+        return true; // valid command
+    }
+
+
+
+     
+}
