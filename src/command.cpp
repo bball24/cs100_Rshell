@@ -71,7 +71,7 @@ bool command::testCommand(vector <string> cmds)
     struct stat fileBuffer;
     string flag = cmds.at(1);
     auto path = cmds.at(2).c_str();
-    if(stat(path, &file_stat) == -1)
+    if(stat(path, &fileBuffer) == -1)
     {
         perror("Stat Error");
         return false;
