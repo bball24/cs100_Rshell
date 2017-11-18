@@ -1,19 +1,13 @@
-
 (echo A && echo B) || (echo C && echo D)
 
 echo A || (echo B && echo C && echo D) # output should be B, C, and D
-
 (echo A || echo C) #output: A 
-
 (echo A) && (echo C) #output: A, C
-
 echo A || echo B && echo C #output: A, C
-
 echo A || (echo B && echo C) #output: A
-
 echo A && (echo B || (echo C && echo D)) #output A, B
-
 echo A && (echo B || echo C && echo D) #outputs A, B, D
+<<<<<<< HEAD
 
 (echo A) ; (echo B)
 
@@ -21,4 +15,9 @@ echo A && (echo B && echo C)
 
 echo A && echo B && echo C
 
+=======
+(echo A) ; (echo B)
+echo A && (echo B && echo C)
+echo A && echo B && echo C
+>>>>>>> a7e8bf9d8d62614cab6db5e2c53e198077042c71
 exit
