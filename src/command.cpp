@@ -3,6 +3,11 @@
 // Attempts to run the given command from /usr/bin
 int command :: executeCommand()
 {
+	// Check to see if test command, use other function if that's the case
+	if(commandName == "test")
+	{
+		return testCommand();;
+	}
 	// PID is set to 0 for the child process. PID is set to the PID of the child process, in the parent process.
 	pid_t pid;
 	int status;
@@ -61,16 +66,34 @@ string command::getCommandName()
 	return commandName;
 }
 
-bool command::testCommand(vector <string> cmds)
+int command::testCommand()
 {
-    if(cmds.size() <= 0)
-    {
-        cout << "Invalid command" << endl;
-        return false;
-    }
+	int k = 0;
+	char* testArguments = new char [arguments.size()];
+	strcpy(testArguments, arguments.c_str());
+	char* j = strtok (testArguments, " ");
+	char** args = new char*[arguments.length()+1];
+	char* path;
+	string flagd = "-d";
+	string flage = "-e";
+	string flagf = "-f";
+	while(j != NULL)
+	{
+		args[k] = j;
+		j = strtok(NULL, " ");
+		++k;
+	}
     struct stat fileBuffer;
-    string flag = cmds.at(1);
-    auto path = cmds.at(2).c_str();
+    string flag;
+	if (args[0] != flagd.c_str() || args[0] != flage.c_str() || args[0] != flagf.c_str())
+	{
+		flag = args[0];
+		path = args[1];
+	}
+	else
+	{
+		path = args[0];
+	}
     if(stat(path, &fileBuffer) == -1)
     {
         perror("Stat Error");
@@ -83,12 +106,13 @@ bool command::testCommand(vector <string> cmds)
 
     if(flag == "-e") // e flag
     {
-       
-       cout << "(True)" << endl;      
+		cout << "(True)" << endl;
+		return true;
+ 
     }
     if(flag == "-d") // d flag
     {
-        auto checkDirectory = S_ISDIR(file_stat.st_mode);
+        int checkDirectory = S_ISDIR(fileBuffer.st_mode);
         if(checkDirectory)
         {
              cout << "(True)" << endl;
@@ -97,11 +121,11 @@ bool command::testCommand(vector <string> cmds)
         {
              cout << "(False)" << endl;
         }
-        return true; // valid command
+        return checkDirectory; // valid command
     }
     if(flag == "-f")
     {
-        auto isRegFile = S_ISREG(file_stat.stmode);
+        int isRegFile = S_ISREG(fileBuffer.st_mode);
         if(isRegFile)
         {
             cout << "(True)" << endl;
@@ -111,10 +135,10 @@ bool command::testCommand(vector <string> cmds)
             cout << "(False)" << endl;
         }
         
-        return true; // valid command
+        return isRegFile; // valid command
     }
 
 
 
-     
+     return false;
 }

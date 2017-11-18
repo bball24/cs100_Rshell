@@ -3,10 +3,12 @@
 #include <iostream>
 #include <string>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include <unistd.h>
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
+#include <vector>
 using namespace std;
 
 class command
@@ -23,7 +25,7 @@ class command
 		// Attempts to run the given command from /usr/bin
 		int executeCommand();
 		string getCommandName();
-                bool testCommand(vector <string> commands);
+        int testCommand();
 };
 
 
