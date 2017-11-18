@@ -83,19 +83,19 @@ bool command::testCommand(vector <string> cmds)
 
     if(flag == "-e") // e flag
     {
-       ///// still figuring out
-             
+       
+       cout << "(True)" << endl;      
     }
     if(flag == "-d") // d flag
     {
         auto checkDirectory = S_ISDIR(file_stat.st_mode);
         if(checkDirectory)
         {
-             cout << "(true)" << endl;
+             cout << "(True)" << endl;
         }
         else
         {
-             cout << "(false)" << endl;
+             cout << "(False)" << endl;
         }
         return true; // valid command
     }
@@ -104,11 +104,11 @@ bool command::testCommand(vector <string> cmds)
         auto isRegFile = S_ISREG(file_stat.stmode);
         if(isRegFile)
         {
-            cout << "(true)" << endl;
+            cout << "(True)" << endl;
         }
         else
         { 
-            cout << "(false)" << endl;
+            cout << "(False)" << endl;
         }
         
         return true; // valid command
