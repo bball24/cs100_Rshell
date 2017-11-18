@@ -1,1 +1,23 @@
 
+[-e src/command.cpp]
+[-f src/command.cpp]
+[-d src/command.cpp]
+test -e src/command.cpp
+test -f src/command.cpp
+test -d src/command.cpp
+test -d test
+test -e src/parse.cpp || echo "Hi there"
+[-e src.command.cpp] || echo "Yo"
+test -f src/command.cpp && ls -a || echo "Hello"
+(test -e src/parse.cpp && ls -a) || echo "Hello"
+
+
+
+
+
+
+
+
+
+
+exit
