@@ -6,7 +6,12 @@ int command :: executeCommand()
 	// Check to see if test command, use other function if that's the case
 	if(commandName == "test")
 	{
-		return testCommand();;
+		if (arguments == "")
+		{
+			cout << "No arguments supplied for test" << endl;
+			return false;
+		}
+		return !testCommand();;
 	}
 	// PID is set to 0 for the child process. PID is set to the PID of the child process, in the parent process.
 	pid_t pid;
