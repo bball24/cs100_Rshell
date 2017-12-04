@@ -1,0 +1,13 @@
+echo Hello! > main.cpp
+// cat main.cpp should output Hello!
+
+echo Hi! > main.cpp
+//cat main.cpp should output Hi! which should override the previous text
+
+cat < existingInputFile | tr A-Z a-z | tee newOutputFile1 | tr a-z A-Z > newOutputFile2
+
+ls -a > main.cpp
+
+
+
+
