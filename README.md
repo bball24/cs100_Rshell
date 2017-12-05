@@ -1,7 +1,7 @@
 ## Rshell
 
 
-This is a terminal shell that can execute mulitple commands on one line using connectors and semicolons. Commands can be connected by connectors &&, ||, ; and anything after # is a comment.
+This is a terminal shell that can execute mulitple commands on one line using connectors and semicolons. Commands can be connected by connectors &&, ||, ; and anything after # is a comment. This shell can also run test commands and check for precedence. Currently under implementation is piping, input redirection, and output redirection.
 
 ## Bugs
 Cannot use quotation marks to specify arguments to commands.
