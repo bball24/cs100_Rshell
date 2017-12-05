@@ -1,5 +1,5 @@
 #include "command.h"
-
+#include <unistd.h>
 // Attempts to run the given command from /usr/bin
 int command :: executeCommand()
 {
@@ -28,6 +28,21 @@ int command :: executeCommand()
 	// parent process, and lose the ability to return to main.
 	else if (pid == 0)
 	{
+
+		int fileDirectory;
+		int in, out; // in represents > ; out represents <
+		if(in){ // if < exists
+			fileDirectory = open(input, O_RDONLY);
+			dup2(fileDirectory, cin);
+			close(fileDirectory);
+			in = 0;
+		} 
+		if(out){// if > exists
+			//fileDirectory = creat()
+			//dup2(fileDirectory, cin);
+		} 
+
+
 		// Need to make a char** array to use execvp.
 		// Essentially we're filling it with the command name and its arguments.
 		string nameAndArgs = commandName + ' ' + arguments;
