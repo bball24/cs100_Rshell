@@ -32,18 +32,19 @@ int command :: executeCommand()
 		int fileDirectory;
 		int in, out; // in represents > ; out represents <
 		if(in){ // if < exists in command line
-			fileDirectory = open(fileName, O_RDONLY| O_CREAT| O_TRUNC);
+			fileDirectory = open(fileName, O_RDONLY);
 			dup2(fileDirectory, STDIN_FILENO);
 			close(fileDirectory);
 			in = 0;
 		} 
 		if(out){// if > exists in command line 
-			fileDirectory = open(fileName, O_RDWR| O_CREAT| O_TRUNC);
+			fileDirectory = open(fileName, O_WRONLY| O_CREAT| O_TRUNC, S_IRUSR| S_IRGRP| S_IWGRP| S_IWUSR);
 			dup2(fileDirectory, STDOUT_FILENO);
 			close(fileDirectory);
 			out = 0;
 		} 
 		// still trying to figure out output redirection append
+		// if >> exists fileDirectory is opened with open(fileName, O_WRONLY| O_CREAT| O_APPEND, S_IRUSR| S_IRGRP| S_IWGRP| S_IWUSR)
 
 
 		// Need to make a char** array to use execvp.
